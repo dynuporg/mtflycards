@@ -1,7 +1,7 @@
 <?php 
 /**
  * MT Flycards
- * wrapper start for Theme Twenty Ten v 1.0
+ * wrapper start for Theme Ten Twelve v 1.0
  */
 ?>
 <div id="container">

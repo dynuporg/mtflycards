@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: MT Flycards Standard Edition
+Plugin Name: MT Flycards
 Plugin URI: http://mtflycards.dynup.org
 Description: this plugin teming shop page of woocommerce 2.0.10 and later
 Author: Marco Tomaselli at sys@dynup.org
-Version: 1.0.bs
+Version: 1.0.be
 Author URI: http://mtflycards.dynup.org/
 */
 
@@ -28,7 +28,6 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			var $mtflycards_product_excerpt_len_range=array();
 			var $mtflycards_products_per_page_range=array();
 			var $mtflycards_skin=array();
-			var $is_theme_compat=false;
 
 
 			public function  __construct(){
@@ -37,12 +36,10 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				define('FLYCARDS_VERSION', $this->version );
 				//locale
 				$this->load_plugin_textdomain();
-				//check theme compatibility
-				$this->is_theme_compat= $this->check_theme_compat();
 				// create custom plugin settings menu
 				add_action('admin_menu', array(&$this,'create_menu'));
 				add_action('admin_init', array(&$this, 'register_settings'));
-				//init
+				// hook woocommerce
 				add_action( 'init' , array(&$this, 'core' ));
 				//hook
 				do_action('after_mtflycards_core');
@@ -58,17 +55,17 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				do_action('mtflycards_loaded');
 
 			}
-			
+
 			function core(){
 
-				//check if existsts wrapper files for current wordpress theme
-				$this->check_theme_compat(); 
+
 				//defaults options
 				apply_filters('mtflycards_defaults', $this->defaults=array(
 
-				'skin'=>'cupertino',
+				'skin'=>'trontastic',
 				'animation' => 'swing',
 				'animation_time' => 450,
+				'theme_compat' => 'Custom',
 				'infinitescroll' =>1,
 				'ajax_page_load' =>1,
 				'show_catsf_tab'=>1,
@@ -114,7 +111,6 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//error
 				apply_filters('mtflycards_error', $this->error=array(
-				'not_theme_compatible' => sprintf(__('%s theme is not currently supported by MT Flycards','flycards'),get_option('template')),
 				'animation_time'=> sprintf(__('Duration as ms is invalid or not in valid range (min:%d max:%d), previous valid value restored','flycards'),$this->mtflycards_animation_time_range[0],$this->mtflycards_animation_time_range[1]),
 				'product_excerpt_len'=> sprintf(__('Product excerpt length is invalid or not in valid range (min:%d max:%d), previous valid value restored','flycards'),$this->mtflycards_product_excerpt_len_range[0],$this->mtflycards_product_excerpt_len_range[1]),
 				'products_per_page'=> sprintf(__('Products per page is invalid or not in valid range (min:%d max:%d), previous valid value restored','flycards'),$this->mtflycards_products_per_page_range[0],$this->mtflycards_products_per_page_range[1]),
@@ -193,8 +189,6 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//init options
 				$this->init_options();
-				
-				if (!$this->is_theme_compat) return;
 				//functions
 				include_once $this->plugin_path() . '/mtflycards-functions.php';
 				//after init hooks
@@ -202,12 +196,19 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 			}
 				
-			
+			function not_target_page(){
+				return (!is_shop()
+						&& !is_product_category()
+						&& !is_product_tag()
+						&& !is_single()
+						&& !is_cart()
+				);
+			}
 
 			function scripts(){
 
 
-				if (!$this->is_theme_compat && $this->is_target_page()
+				if ($this->not_target_page()
 				) return;
 
 				/*
@@ -244,7 +245,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				
 			function styles(){
 
-				if (!$this->is_theme_compat && $this->is_target_page()
+				if ($this->not_target_page()
 				) return;
 
 				// load jQuery-UI selected theme from cdn
@@ -267,9 +268,6 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			function register_settings() {
 
 				register_setting('mtflycards_options', 'mtflycards_options', array(&$this, 'validate_options'));
-				
-				if(!$this->is_theme_compat)
-					add_settings_error('mtflycards_options', 'setting-error-settings_updated', $this->error['not_theme_compatible'],'error');
 
 				//skin & animation settings
 				add_settings_section(
@@ -315,6 +313,26 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				'size'=>'5',
 				'text'=>"<p class='description'>".sprintf($this->message['min_max_range'],$this->mtflycards_animation_time_range[0],$this->mtflycards_animation_time_range[1])."</p>"
 						)
+				);
+
+				//theme compatibility section
+				add_settings_section(
+				'mtflycards_settings_theme',//setting section id
+				__('Compatibility of Current Active Wordpress Theme','flycards'),//section title
+				array(&$this,'desc_mtflycards_settings_theme'),//section description
+				'edit_mtflycards_settings'//settings page
+				);
+
+				add_settings_field(
+				'theme_compat',
+				__('Theme compatibility','flycards'),
+				array(&$this, 'input_select_field'),
+				'edit_mtflycards_settings',
+				'mtflycards_settings_theme',
+				array(
+				'id'=> 'theme_compat',
+				'ar'=> glob($this->plugin_path()."/compat/*", GLOB_ONLYDIR)
+				)
 				);
 
 				//ajax catalog page load section
@@ -445,7 +463,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				'mtflycards_settings_colors',//setting section id
 				__('Colors','flycards'),//section title
 				array(&$this,'desc_mtflycards_colors'),//section description
-				'edit_mtflycards_settings'
+				'edit_mtflycards_settings'//settings page
 				);
 
 
@@ -600,9 +618,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 			//validate options
 			function validate_options($options){
-				
-				
-			    
+
 
 				//restore to defaults confirmed
 				if($_POST['restore_defaults']) {
@@ -668,29 +684,6 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			function is_card_dimension($input){
 
 				return preg_match("/^[0-9]+\.?([0-9]+)?(px|em|%)$/",$input);
-			}
-			
-			//check target page
-			function is_target_page(){
-				return (is_shop()
-						|| is_product_category()
-						|| is_product_tag()
-						|| is_single()
-						|| is_cart()
-				)?true:false;
-			}
-			
-			//check if exists compatibility for current active wordpress theme
-			function check_theme_compat(){
-				$check_compat=false;
-				$template=get_option('template');
-				$compat=$this->plugin_path().'/compat/'.$template.'/';
-				if(is_dir($compat)
-				&& is_file($compat.'wrapper-start.php')
-				&& is_file($compat.'wrapper-end.php'))
-					$check_compat=true;
-				return $check_compat;
-			
 			}
 
 

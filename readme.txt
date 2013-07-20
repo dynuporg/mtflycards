@@ -1,14 +1,15 @@
 === MT Flycards ===
 Contributors: Marco Tomaselli
 Donate link: http://mtflycards.dynup.org
-Tags: Mt Flycards Standard Edition, Woocommerce Addon, jQuery-UI
+Tags: Mt flycards, flycards, woocommerce addons, theme for woocommerce, wordpress MT flycards, flycards
 Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin is an addon for Woocommerce 2.0.10 and above, applies modern graphics and compact design to a product catalog
+This plugin is an addon for Woocommerce 2.0.10 and above, applies modern graphics and compact design to a product catalog of
+Woocommerce plugin for Wordpress.
 
 ==Description==
 
@@ -18,11 +19,14 @@ good looking and intuitive navigation
 = 25 Themes JQuery-UI preinstalled =
 25 jQuery-UI themes pre-installed and ready to be activated by a convenient selection menu.
 
-= Wordpress Theme Supported in this release =
-Twenty Ten, Twenty Eleven, Twenty Twelve
+= Compatible with many themes for Wordpress =
+Compatible with most of the themes for wordpress thanks to a convenient wrapper for the content section of your theme
+configurable from the page settings of Flycards.
 
 = Responsive =
-display of cards products which adapt instantly to the width of the element that contains them.
+
+Compatible with Responsive Wordpress themes,
+display of cards products which adapt instantly to the width of the 'element that contains them.
 
 = Multi Languages =
 
@@ -35,7 +39,6 @@ Recommend the use of Poedit for translation
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
 * Woocommerce 2.0.10 or greater
-* At least one of the following themes for Wordpress Twenty Ten, Twenty Eleven, Twenty Twelve
 
 = Automatic installation =
 
@@ -69,5 +72,5 @@ for more information how to use MT Flycards please visit http://mtflycards.dynup
 
 == Changelog ==
 
-=1.0.bs - 15/07/2013 =
-* - Initial Beta release MT Flycards Standard Edition
+=1.0.b - 15/07/2013 =
+* - Initial Beta release

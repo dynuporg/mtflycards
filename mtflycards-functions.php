@@ -1,8 +1,8 @@
 <?php
 /*
- * MT Flycards Standard Edition
-* copyright 2013 Marco Tomaselli sys@dynup.org
-*/
+ * MT Flycards
+ * copyright 2013 Marco Tomaselli sys@dynup.org
+ */
 
 //product meta
 function mtflycards_meta() {
@@ -35,11 +35,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	global $woocommerce;
 	ob_start();
 	?>
-<a class="fc-cart-contents"
-	href="<?php echo $woocommerce->cart->get_cart_url(); ?>"
-	title="<?php _e('View your shopping cart', 'flycards'); ?>"><img
-	class="ui-icon ui-icon-cart" /> <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'flycards'), $woocommerce->cart->cart_contents_count);?>
-	- <?php echo $woocommerce->cart->get_cart_total(); ?> </a>
+<a class="fc-cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'flycards'); ?>"><img class="ui-icon ui-icon-cart" /><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'flycards'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
 <?php
 $fragments['a.fc-cart-contents'] = ob_get_clean();
 return $fragments;
@@ -59,15 +55,10 @@ function mtflycards_get_template($template) {
 
 // template loader
 function mtflycards_get_theme_compat($template) {
-$compat=mtflycards_get_plugin_path() . '/compat/' . get_option('template') . '/';
-if (is_dir($compat)
-&& is_file($compat.'wrapper-start.php')
-&& is_file($compat.'wrapper-end.php')
-)
-	woocommerce_get_template($template, FALSE, FALSE, mtflycards_get_plugin_path() . '/compat/' . get_option('template') . '/');
+	woocommerce_get_template($template, FALSE, FALSE, mtflycards_get_plugin_path() . '/compat/' . mtflycards_get_option('theme_compat') . '/');
 }
 
-// helper - plugin path loader
+// helper - plugin path loader 
 function mtflycards_get_plugin_path(){
 	global $mtflycards;
 	return $url=$mtflycards->plugin_path();

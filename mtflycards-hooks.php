@@ -1,6 +1,6 @@
 <?php
 /*
- * MT Flycards Standard Edition
+ * MT Flycards
 * copyright 2013 Marco Tomaselli sys@dynup.org
 */
 
