@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: flycards\n"
+"POT-Creation-Date: 2013-07-13 21:03+0100\n"
+"PO-Revision-Date: 2013-07-13 21:03+0100\n"
+"Last-Translator: Marco Tomaselli <tmjoke@yahoo.it>\n"
+"Language-Team: Dynup.org <sys@dynup.org>\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_n;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../mtflycards-functions.php:34
+msgid "View your shopping cart"
+msgstr ""
+
+#: ../mtflycards-functions.php:34
+#, php-format
+msgid "%d item"
+msgstr ""
+
+#: ../mtflycards-functions.php:43
+msgid "[More..]"
+msgstr ""
+
+#: ../mtflycards.php:93
+msgid "Loading"
+msgstr ""
+
+#: ../mtflycards.php:94
+msgid "Please wait .."
+msgstr ""
+
+#: ../mtflycards.php:95
+msgid "Loading next page"
+msgstr ""
+
+#: ../mtflycards.php:96
+msgid "No more pages"
+msgstr ""
+
+#: ../mtflycards.php:101
+#, php-format
+msgid "min: %d max: %d"
+msgstr ""
+
+#: ../mtflycards.php:102
+msgid "valid value are in px, em, percent"
+msgstr ""
+
+#: ../mtflycards.php:103
+msgid "All settings restored to its defaults"
+msgstr ""
+
+#: ../mtflycards.php:104
+msgid "<p style=\"width:400px\">Select jQuery-UI theme and animation type</p>"
+msgstr ""
+
+#: ../mtflycards.php:105
+msgid "<p>Select compatibility for your current active wordpress theme.</p>"
+msgstr ""
+
+#: ../mtflycards.php:106
+msgid "<p>Activate or disable ajax and infinetscroll </p>"
+msgstr ""
+
+#: ../mtflycards.php:107
+msgid ""
+"<p>Product summary length, width and higth of cards, show products per page</"
+"p>"
+msgstr ""
+
+#: ../mtflycards.php:108
+msgid ""
+"<p>Product excerpt over images, category tab filters, tags tab filters </p>"
+msgstr ""
+
+#: ../mtflycards.php:109
+msgid "<p>Can choose color for non ui widget parts</p>"
+msgstr ""
+
+#: ../mtflycards.php:114
+#, php-format
+msgid ""
+"Duration as ms is invalid or not in valid range (min:%d max:%d), previous "
+"valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:115
+#, php-format
+msgid ""
+"Product excerpt length is invalid or not in valid range (min:%d max:%d), "
+"previous valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:116
+#, php-format
+msgid ""
+"Products per page is invalid or not in valid range (min:%d max:%d), previous "
+"valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:117
+msgid ""
+"Please insert valid hex color for background of product image, only accept "
+"hex color"
+msgstr ""
+
+#: ../mtflycards.php:118
+msgid ""
+"Please insert valid hex color for background of product excerpt, previous "
+"valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:119
+msgid ""
+"Please insert valid hex color for star rating, previous valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:120
+msgid ""
+"Please insert valid hex color for text of product excerpt,  previous valid "
+"value restored"
+msgstr ""
+
+#: ../mtflycards.php:121
+msgid ""
+"No valid value inserted for card width valid value are in px , em, percent, "
+"previous valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:122
+msgid ""
+"No valid value inserted for card height valid value are in px, em, percent, "
+"previous valid value restored"
+msgstr ""
+
+#: ../mtflycards.php:273
+msgid "MT Flycards Settings"
+msgstr ""
+
+#: ../mtflycards.php:284
+msgid "jQuery-UI Theme and Animation"
+msgstr ""
+
+#: ../mtflycards.php:293
+msgid "Theme"
+msgstr ""
+
+#: ../mtflycards.php:304
+msgid "Animation type"
+msgstr ""
+
+#: ../mtflycards.php:316
+msgid "Duration as ms"
+msgstr ""
+
+#: ../mtflycards.php:330
+msgid "Compatibility of Current Active Wordpress Theme"
+msgstr ""
+
+#: ../mtflycards.php:337
+msgid "Theme compatibility"
+msgstr ""
+
+#: ../mtflycards.php:350
+msgid "Enable or disable Ajax Plugins "
+msgstr ""
+
+#: ../mtflycards.php:357
+msgid "Shop page loading by ajax"
+msgstr ""
+
+#: ../mtflycards.php:366
+msgid "Infinite scroll"
+msgstr ""
+
+#: ../mtflycards.php:376
+msgid "Show or hide parts"
+msgstr ""
+
+#: ../mtflycards.php:383
+msgid "Show Categories filter tab"
+msgstr ""
+
+#: ../mtflycards.php:392
+msgid "Show Tags filter tab"
+msgstr ""
+
+#: ../mtflycards.php:402
+msgid "Show product excerpt over image"
+msgstr ""
+
+#: ../mtflycards.php:412
+msgid "Parts properties"
+msgstr ""
+
+#: ../mtflycards.php:419
+msgid "Product excerpt length"
+msgstr ""
+
+#: ../mtflycards.php:432
+msgid "Products per page"
+msgstr ""
+
+#: ../mtflycards.php:445
+msgid "Card width"
+msgstr ""
+
+#: ../mtflycards.php:458
+msgid "Card height"
+msgstr ""
+
+#: ../mtflycards.php:473
+msgid "Colors"
+msgstr ""
+
+#: ../mtflycards.php:481
+msgid "Product image background color"
+msgstr ""
+
+#: ../mtflycards.php:494
+msgid "Product excerpt background color"
+msgstr ""
+
+#: ../mtflycards.php:507
+msgid "Product excerpt text color"
+msgstr ""
+
+#: ../mtflycards.php:520
+msgid "Star rating color"
+msgstr ""
+
+#: ../mtflycards.php:580
+msgid "Save Changes"
+msgstr ""
+
+#: ../mtflycards.php:581
+msgid "Restore Defaults"
+msgstr ""
+
+#: ../admin/mtflycards-settings.php:75
+msgid "Are you sure restore defaults settings of MT Flycards ?"
+msgstr ""
+
+#: ../templates/fc-navigation.php:22
+#, php-format
+msgid "View all products filed under %s"
+msgstr ""
+
+#: ../templates/fc-navigation.php:56
+msgid "Search"
+msgstr ""
+
+#: ../templates/fc-navigation.php:57
+msgid "Ordering"
+msgstr ""
+
+#: ../templates/fc-navigation.php:75
+msgid "Shop Menu"
+msgstr ""
+
+#: ../templates/fc-navigation.php:78
+msgid "Categories present on this page"
+msgstr ""
+
+#: ../templates/fc-navigation.php:79
+msgid "Page Categories"
+msgstr ""
+
+#: ../templates/fc-navigation.php:82
+msgid "Keywords present on this page"
+msgstr ""
+
+#: ../templates/fc-navigation.php:83
+msgid "Page Tags"
+msgstr ""
+
+#: ../templates/fc-navigation.php:86
+msgid "Viewed"
+msgstr ""
+
+#: ../templates/fc-navigation.php:88
+msgid "On Sale"
+msgstr ""
+
+#: ../templates/fc-navigation.php:90
+msgid "Best Sellers"
+msgstr ""
