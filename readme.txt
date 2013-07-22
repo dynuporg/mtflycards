@@ -5,10 +5,10 @@ Tags: Mt Flycards Standard Edition, Woocommerce Addon, jQuery-UI
 Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 3.5
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-This plugin is an addon for Woocommerce 2.0.10 and above, applies modern graphics and compact design to a product catalog
+This plugin is a free addon/extension for Woocommerce 2.0.10 and above, applies modern graphics and compact design to a product catalog
 
 ==Description==
 
@@ -19,7 +19,7 @@ good looking and intuitive navigation
 25 jQuery-UI themes pre-installed and ready to be activated by a convenient selection menu.
 
 = Wordpress Theme Supported in this release =
-Twenty Ten, Twenty Eleven, Twenty Twelve
+Twenty Ten, Twenty Eleven, Twenty Twelve visit support site
 
 = Responsive =
 display of cards products which adapt instantly to the width of the element that contains them.

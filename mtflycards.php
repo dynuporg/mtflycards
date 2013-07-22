@@ -15,7 +15,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 		class MT_Flycards{
 
-			var $version="1.0.b";
+			var $version="1.0.bs";
 			var $plugin_path;
 			var $plugin_url;
 			var $options=array();
@@ -114,7 +114,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//error
 				apply_filters('mtflycards_error', $this->error=array(
-				'not_theme_compatible' => sprintf(__('%s theme is not currently supported by MT Flycards','flycards'),get_option('template')),
+				'not_theme_compatible' => sprintf(__('Sorry %s theme is not currently supported by MT Flycards','flycards'),get_option('template')),
 				'animation_time'=> sprintf(__('Duration as ms is invalid or not in valid range (min:%d max:%d), previous valid value restored','flycards'),$this->mtflycards_animation_time_range[0],$this->mtflycards_animation_time_range[1]),
 				'product_excerpt_len'=> sprintf(__('Product excerpt length is invalid or not in valid range (min:%d max:%d), previous valid value restored','flycards'),$this->mtflycards_product_excerpt_len_range[0],$this->mtflycards_product_excerpt_len_range[1]),
 				'products_per_page'=> sprintf(__('Products per page is invalid or not in valid range (min:%d max:%d), previous valid value restored','flycards'),$this->mtflycards_products_per_page_range[0],$this->mtflycards_products_per_page_range[1]),
