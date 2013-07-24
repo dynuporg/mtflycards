@@ -1,9 +1,9 @@
 <?php
 /*
-* Mt Flycards
-* tabbed navigation
-*
-*/
+ * Mt Flycards
+ * tabbed navigation
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
 class MT_Accordion_Walker extends Walker_Category {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$output .= "<ul class='fc-menu-children'>";

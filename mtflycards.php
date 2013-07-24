@@ -4,7 +4,7 @@ Plugin Name: MT Flycards Standard Edition
 Plugin URI: http://mtflycards.dynup.org
 Description: this plugin teming shop page of woocommerce 2.0.10 and later
 Author: Marco Tomaselli at sys@dynup.org
-Version: 1.0.bs
+Version: 1.1.bs
 Author URI: http://mtflycards.dynup.org/
 */
 
@@ -15,7 +15,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 		class MT_Flycards{
 
-			var $version="1.0.bs";
+			var $version="1.1.bs";
 			var $plugin_path;
 			var $plugin_url;
 			var $options=array();
@@ -76,12 +76,12 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				'pe_image_overlay'=>1,
 				'product_excerpt_len'=>100,
 				'products_per_page'=>6,
-				'bgc_product_img'=>'#fff',
-				'bgc_excerpt'=>'#888',
-				'fg_excerpt'=>'#fff',
+				'bgc_product_img'=>'#ffffff',
+				'bgc_excerpt'=>'#f2f5f7',
+				'fg_excerpt'=>'#362b3a',
 				'card_width'=>'180px',
 				'card_height'=>'237px',
-				'star_color'=>'#fff'
+				'star_color'=>'#fff1a0'
 
 
 						));
@@ -247,13 +247,11 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				if (!$this->is_theme_compat && $this->is_target_page()
 				) return;
 
-				// load jQuery-UI selected theme from cdn
-				wp_enqueue_style($this->options['skin'],'http://code.jquery.com/ui/1.9.2/themes/'.$this->options['skin'].'/jquery-ui.css');
+				// load jQuery-UI  theme
+				wp_enqueue_style($this->options['skin'],$this->plugin_url() . '/assets/jquery-ui-themes/themes/'.$this->options['skin'].'/jquery-ui.css');
 
 				// load mtflycards styles
 				wp_enqueue_style('mtflycards-core',$this->plugin_url() . '/assets/css/mtflycards-core.css');
-
-				/*wp_enqueue_style('qunit', $this->plugin_url() . '/test/qunit.css');*/
 
 			}
 
@@ -273,10 +271,10 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//skin & animation settings
 				add_settings_section(
-				'mtflycards_settings_sa',//setting section id
-				__('jQuery-UI Theme and Animation','flycards'),//section title
-				array(&$this,'desc_mtflycards_settings_sa'),//section description
-				'edit_mtflycards_settings'//settings page
+				'mtflycards_settings_sa',
+				__('jQuery-UI Theme and Animation','flycards'),
+				array(&$this,'desc_mtflycards_settings_sa'),
+				'edit_mtflycards_settings'
 				);
 
 
@@ -319,10 +317,10 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//ajax catalog page load section
 				add_settings_section(
-				'mtflycards_settings_ajax',//setting section id
-				__('Enable or disable Ajax Plugins ','flycards'),//section title
-				array(&$this,'desc_mtflycards_settings_ajax'),//section description
-				'edit_mtflycards_settings'//settings page
+				'mtflycards_settings_ajax',
+				__('Enable or disable Ajax Plugins ','flycards'),
+				array(&$this,'desc_mtflycards_settings_ajax'),
+				'edit_mtflycards_settings'
 				);
 
 				add_settings_field(
@@ -345,10 +343,10 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//show or hide parts section
 				add_settings_section(
-				'mtflycards_settings_parts',//setting section id
-				__('Show or hide parts','flycards'),//section title
-				array(&$this,'desc_mtflycards_settings_parts'),//section description
-				'edit_mtflycards_settings'//settings page
+				'mtflycards_settings_parts',
+				__('Show or hide parts','flycards'),
+				array(&$this,'desc_mtflycards_settings_parts'),
+				'edit_mtflycards_settings'
 				);
 
 				add_settings_field(
@@ -381,10 +379,10 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//parts properties section
 				add_settings_section(
-				'mtflycards_settings_parts_prop',//setting section id
-				__('Parts properties','flycards'),//section title
-				array(&$this,'desc_mtflycards_settings_parts_prop'),//section description
-				'edit_mtflycards_settings'//settings page
+				'mtflycards_settings_parts_prop',
+				__('Parts properties','flycards'),
+				array(&$this,'desc_mtflycards_settings_parts_prop'),
+				'edit_mtflycards_settings'
 				);
 
 				add_settings_field(
@@ -442,9 +440,9 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//colors section
 				add_settings_section(
-				'mtflycards_settings_colors',//setting section id
-				__('Colors','flycards'),//section title
-				array(&$this,'desc_mtflycards_colors'),//section description
+				'mtflycards_settings_colors',
+				__('Colors','flycards'),
+				array(&$this,'desc_mtflycards_colors'),
 				'edit_mtflycards_settings'
 				);
 
@@ -504,10 +502,10 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//submit and reset
 				add_settings_section(
-				'mtflycards_sr',//setting section id
-				null,//section title
-				array(&$this,'input_submit'),//callback
-				'edit_mtflycards_settings'//settings page
+				'mtflycards_sr',
+				null,
+				array(&$this,'input_submit'),
+				'edit_mtflycards_settings'
 				);
 
 			}
@@ -723,7 +721,6 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 					
 			}
 
-			//plugin internationalization
 			function load_plugin_textdomain(){
 					
 				load_plugin_textdomain('flycards',false,dirname( plugin_basename( __FILE__ ) ).'/languages');

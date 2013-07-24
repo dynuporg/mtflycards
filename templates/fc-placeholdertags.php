@@ -3,6 +3,7 @@
  * MT Flycards
  * placeholder for tags link
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
 global $page_tags;
 $tags_nav_filter='';
 if (isset($page_tags) && count($page_tags)>0)

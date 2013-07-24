@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit;?>
 <div class="wrap">
 	<?php screen_icon(); ?>
 	<h2>MT Flycards Settings</h2>

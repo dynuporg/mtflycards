@@ -19,7 +19,7 @@ good looking and intuitive navigation
 25 jQuery-UI themes pre-installed and ready to be activated by a convenient selection menu.
 
 = Wordpress Theme Supported in this release =
-Twenty Ten, Twenty Eleven, Twenty Twelve visit support site
+Twenty Ten, Twenty Eleven, Twenty Twelve (visit support site for more info)
 
 = Responsive =
 display of cards products which adapt instantly to the width of the element that contains them.
@@ -68,6 +68,10 @@ It always recommended to look at the change log to see what and which files have
 for more information how to use MT Flycards please visit http://mtflycards.dynup.org
 
 == Changelog ==
-
-=1.0.bs - 15/07/2013 =
-* - Initial Beta release MT Flycards Standard Edition
+=1.1.bs - 15/07/2013 =
+not disponible on repository
+=1.1.bs - 24/07/2013 =
+* adjust to Wordpress Repository requisite
+* Improve security
+* themes jquery-ui 1.9.2 now are loaded locally  
+* changed some default settings

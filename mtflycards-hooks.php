@@ -1,8 +1,10 @@
 <?php
 /*
- * MT Flycards Standard Edition
-* copyright 2013 Marco Tomaselli sys@dynup.org
-*/
+ * MT Flycards
+ * copyright 2013 Marco Tomaselli sys@dynup.org
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 
 /**
  * FILTERS
@@ -15,8 +17,6 @@ add_filter('woocommerce_short_description', 'mtflycards_product_excerpt');
 
 //product per page
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return mtflycards_get_option("products_per_page");' ), 20 );
-
-
 
 
 /**

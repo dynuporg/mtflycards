@@ -1,8 +1,8 @@
 <?php
 /*
- * MT Flycards Standard Edition
-* copyright 2013 Marco Tomaselli sys@dynup.org
-*/
+ * MT Flycards
+ * copyright 2013 Marco Tomaselli sys@dynup.org
+ */
 
 //product meta
 function mtflycards_meta() {

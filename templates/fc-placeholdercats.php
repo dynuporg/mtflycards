@@ -1,8 +1,9 @@
 <?php
 /*
  * MT Flycards
-* placeholder container for categories link
-*/
+ * placeholder container for categories link
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
 global $page_categories;
 $cats='';
 if (isset($page_categories) && count($page_categories)>0)
