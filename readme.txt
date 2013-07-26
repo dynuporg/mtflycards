@@ -68,10 +68,8 @@ It always recommended to look at the change log to see what and which files have
 for more information how to use MT Flycards please visit http://mtflycards.dynup.org
 
 == Changelog ==
-=1.1.bs - 15/07/2013 =
-not disponible on repository
-=1.1.bs - 24/07/2013 =
-* adjust to Wordpress Repository requisite
+=1.1.bs - 26/07/2013 =
+* Adjust to Wordpress Repository requisite
 * Improve security
 * themes jquery-ui 1.9.2 now are loaded locally  
 * changed some default settings
