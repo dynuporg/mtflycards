@@ -207,7 +207,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			function scripts(){
 
 
-				if (!$this->is_theme_compat && $this->is_target_page()
+				if (!$this->is_theme_compat || !$this->is_target_page()
 				) return;
 
 				/*
@@ -244,11 +244,11 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				
 			function styles(){
 
-				if (!$this->is_theme_compat && $this->is_target_page()
+				if (!$this->is_theme_compat || !$this->is_target_page()
 				) return;
 
 				// load jQuery-UI  theme
-				wp_enqueue_style($this->options['skin'],$this->plugin_url() . '/assets/jquery-ui-themes/themes/'.$this->options['skin'].'/jquery-ui.css');
+				wp_enqueue_style($this->options['skin'],$this->plugin_url() . '/assets/jquery-ui/themes/'.$this->options['skin'].'/jquery-ui.css');
 
 				// load mtflycards styles
 				wp_enqueue_style('mtflycards-core',$this->plugin_url() . '/assets/css/mtflycards-core.css');
