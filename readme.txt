@@ -4,7 +4,7 @@ Donate link: http://mtflycards.dynup.org
 Tags: Mt Flycards Standard Edition, Woocommerce Addon, jQuery-UI
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 3.5
+Stable tag: 1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -68,8 +68,5 @@ It always recommended to look at the change log to see what and which files have
 for more information how to use MT Flycards please visit http://mtflycards.dynup.org
 
 == Changelog ==
-=1.1.bs - 26/07/2013 =
-* Adjust to Wordpress Repository requisite
-* Improve security
-* themes jquery-ui 1.9.2 now are loaded locally  
-* changed some default settings
+=1.1 - 26/07/2013 =
+* First Release MT Flycards Standard Edition

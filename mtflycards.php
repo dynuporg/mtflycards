@@ -4,7 +4,7 @@ Plugin Name: MT Flycards Standard Edition
 Plugin URI: http://mtflycards.dynup.org
 Description: this plugin teming shop page of woocommerce 2.0.10 and later
 Author: Marco Tomaselli at sys@dynup.org
-Version: 1.1.bs
+Version: 1.1
 Author URI: http://mtflycards.dynup.org/
 */
 
@@ -15,7 +15,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 		class MT_Flycards{
 
-			var $version="1.1.bs";
+			var $version="1.1";
 			var $plugin_path;
 			var $plugin_url;
 			var $options=array();
