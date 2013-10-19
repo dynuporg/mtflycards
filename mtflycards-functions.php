@@ -4,6 +4,7 @@
  * copyright 2013 Marco Tomaselli sys@dynup.org
  */
 
+
 //product meta
 function mtflycards_meta() {
 	global $product, $page_categories, $page_tags;

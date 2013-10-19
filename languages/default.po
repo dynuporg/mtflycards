@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: flycards\n"
-"POT-Creation-Date: 2013-07-21 09:14+0100\n"
-"PO-Revision-Date: 2013-07-21 09:14+0100\n"
+"POT-Creation-Date: 2013-08-17 09:27+0100\n"
+"PO-Revision-Date: 2013-08-17 09:27+0100\n"
 "Last-Translator: Marco Tomaselli <tmjoke@yahoo.it>\n"
 "Language-Team: Dynup.org <sys@dynup.org>\n"
 "Language: en_EN\n"
@@ -16,234 +16,241 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../mtflycards-functions.php:40
+#: ../mtflycards-functions.php:41
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../mtflycards-functions.php:41
+#: ../mtflycards-functions.php:42
 #, php-format
 msgid "%d item"
 msgstr ""
 
-#: ../mtflycards-functions.php:51
+#: ../mtflycards-functions.php:52
 msgid "[More..]"
 msgstr ""
 
-#: ../mtflycards.php:96
+#: ../mtflycards.php:100
 msgid "Loading"
 msgstr ""
 
-#: ../mtflycards.php:97
+#: ../mtflycards.php:101
 msgid "Please wait .."
 msgstr ""
 
-#: ../mtflycards.php:98
+#: ../mtflycards.php:102
 msgid "Loading next page"
 msgstr ""
 
-#: ../mtflycards.php:99
+#: ../mtflycards.php:103
 msgid "No more pages"
 msgstr ""
 
-#: ../mtflycards.php:104
+#: ../mtflycards.php:108
 #, php-format
 msgid "min: %d max: %d"
 msgstr ""
 
-#: ../mtflycards.php:105
+#: ../mtflycards.php:109
 msgid "valid value are in px, em, percent"
 msgstr ""
 
-#: ../mtflycards.php:106
-msgid "All settings restored to its defaults"
+#: ../mtflycards.php:110
+msgid "All Theme settings restored to its defaults"
 msgstr ""
 
-#: ../mtflycards.php:107
+#: ../mtflycards.php:111
 msgid "<p style=\"width:400px\">Select jQuery-UI theme and animation type</p>"
 msgstr ""
 
-#: ../mtflycards.php:108
+#: ../mtflycards.php:112
 msgid "<p>Select compatibility for your current active wordpress theme.</p>"
 msgstr ""
 
-#: ../mtflycards.php:109
+#: ../mtflycards.php:113
 msgid "<p>Activate or disable ajax and infinetscroll </p>"
 msgstr ""
 
-#: ../mtflycards.php:110
+#: ../mtflycards.php:114
 msgid ""
 "<p>Product summary length, width and higth of cards, show products per page</"
 "p>"
 msgstr ""
 
-#: ../mtflycards.php:111
+#: ../mtflycards.php:115
 msgid ""
 "<p>Product excerpt over images, category tab filters, tags tab filters </p>"
 msgstr ""
 
-#: ../mtflycards.php:112
+#: ../mtflycards.php:116
 msgid "<p>Can choose color for non ui widget parts</p>"
 msgstr ""
 
-#: ../mtflycards.php:117
+#: ../mtflycards.php:121
 #, php-format
 msgid "Sorry %s theme is not currently supported by MT Flycards"
 msgstr ""
 
-#: ../mtflycards.php:118
+#: ../mtflycards.php:122
+#, php-format
+msgid ""
+"%s theme has its own settings, it is recommended to restore the default "
+"settings using the button restore defaults"
+msgstr ""
+
+#: ../mtflycards.php:123
 #, php-format
 msgid ""
 "Duration as ms is invalid or not in valid range (min:%d max:%d), previous "
 "valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:119
+#: ../mtflycards.php:124
 #, php-format
 msgid ""
 "Product excerpt length is invalid or not in valid range (min:%d max:%d), "
 "previous valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:120
+#: ../mtflycards.php:125
 #, php-format
 msgid ""
 "Products per page is invalid or not in valid range (min:%d max:%d), previous "
 "valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:121
+#: ../mtflycards.php:126
 msgid ""
 "Please insert valid hex color for background of product image, only accept "
 "hex color"
 msgstr ""
 
-#: ../mtflycards.php:122
+#: ../mtflycards.php:127
 msgid ""
 "Please insert valid hex color for background of product excerpt, previous "
 "valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:123
+#: ../mtflycards.php:128
 msgid ""
 "Please insert valid hex color for star rating, previous valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:124
+#: ../mtflycards.php:129
 msgid ""
 "Please insert valid hex color for text of product excerpt,  previous valid "
 "value restored"
 msgstr ""
 
-#: ../mtflycards.php:125
+#: ../mtflycards.php:130
 msgid ""
 "No valid value inserted for card width valid value are in px , em, percent, "
 "previous valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:126
+#: ../mtflycards.php:131
 msgid ""
 "No valid value inserted for card height valid value are in px, em, percent, "
 "previous valid value restored"
 msgstr ""
 
-#: ../mtflycards.php:263
+#: ../mtflycards.php:266
 msgid "MT Flycards Settings"
 msgstr ""
 
-#: ../mtflycards.php:277
+#: ../mtflycards.php:282
 msgid "jQuery-UI Theme and Animation"
 msgstr ""
 
-#: ../mtflycards.php:286
+#: ../mtflycards.php:291
 msgid "Theme"
 msgstr ""
 
-#: ../mtflycards.php:297
+#: ../mtflycards.php:302
 msgid "Animation type"
 msgstr ""
 
-#: ../mtflycards.php:309
+#: ../mtflycards.php:314
 msgid "Duration as ms"
 msgstr ""
 
-#: ../mtflycards.php:323
+#: ../mtflycards.php:328
 msgid "Enable or disable Ajax Plugins "
 msgstr ""
 
-#: ../mtflycards.php:330
+#: ../mtflycards.php:335
 msgid "Shop page loading by ajax"
 msgstr ""
 
-#: ../mtflycards.php:339
+#: ../mtflycards.php:344
 msgid "Infinite scroll"
 msgstr ""
 
-#: ../mtflycards.php:349
+#: ../mtflycards.php:354
 msgid "Show or hide parts"
 msgstr ""
 
-#: ../mtflycards.php:356
+#: ../mtflycards.php:361
 msgid "Show Categories filter tab"
 msgstr ""
 
-#: ../mtflycards.php:365
+#: ../mtflycards.php:370
 msgid "Show Tags filter tab"
 msgstr ""
 
-#: ../mtflycards.php:375
+#: ../mtflycards.php:380
 msgid "Show product excerpt over image"
 msgstr ""
 
-#: ../mtflycards.php:385
+#: ../mtflycards.php:390
 msgid "Parts properties"
 msgstr ""
 
-#: ../mtflycards.php:392
+#: ../mtflycards.php:397
 msgid "Product excerpt length"
 msgstr ""
 
-#: ../mtflycards.php:405
+#: ../mtflycards.php:410
 msgid "Products per page"
 msgstr ""
 
-#: ../mtflycards.php:418
+#: ../mtflycards.php:423
 msgid "Card width"
 msgstr ""
 
-#: ../mtflycards.php:431
+#: ../mtflycards.php:436
 msgid "Card height"
 msgstr ""
 
-#: ../mtflycards.php:446
+#: ../mtflycards.php:451
 msgid "Colors"
 msgstr ""
 
-#: ../mtflycards.php:454
+#: ../mtflycards.php:459
 msgid "Product image background color"
 msgstr ""
 
-#: ../mtflycards.php:467
+#: ../mtflycards.php:472
 msgid "Product excerpt background color"
 msgstr ""
 
-#: ../mtflycards.php:480
+#: ../mtflycards.php:485
 msgid "Product excerpt text color"
 msgstr ""
 
-#: ../mtflycards.php:493
+#: ../mtflycards.php:498
 msgid "Star rating color"
 msgstr ""
 
-#: ../mtflycards.php:553
+#: ../mtflycards.php:558
 msgid "Save Changes"
 msgstr ""
 
-#: ../mtflycards.php:554
+#: ../mtflycards.php:559
 msgid "Restore Defaults"
 msgstr ""
 
-#: ../admin/mtflycards-settings.php:75
-msgid "Are you sure restore defaults settings of MT Flycards ?"
+#: ../admin/mtflycards-settings.php:76
+msgid "Are you sure restore defaults?"
 msgstr ""
 
 #: ../templates/fc-navigation.php:22

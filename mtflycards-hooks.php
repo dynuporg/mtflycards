@@ -19,6 +19,7 @@ add_filter('woocommerce_short_description', 'mtflycards_product_excerpt');
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return mtflycards_get_option("products_per_page");' ), 20 );
 
 
+
 /**
  * ACTIONS
  ******************************************************************************************************/

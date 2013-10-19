@@ -1,0 +1,454 @@
+/*
+ * MT Flycards
+ * copyright 2013 Marco Tomaselli sys@dynup.org
+ */
+ 
+/*=Fix essential 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+#content{
+	width:62%;
+}
+.ui-widget{
+	font-size: 100%;
+	font-size: 1em;
+	}
+#fc-nav * ol,#fc-nav * ul,#fc-cards * ol,#fc-cards * ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	outline: none;
+	border: 0;
+}
+/*=Main containers
+will be visible when data is ready from jquery.flycards 
+#fc-phtags, #fc-phcats is placeholder and could stay hidden
+------------------------------------------------------------*/
+#fc-cards,#fc-nav,#fc-pagination-content,#fc-phtags *,#fc-phcats * {
+	visibility: hidden;
+}
+
+/*=Min width of containers
+-------------------------------------------------------------*/
+#fc-nav,#fc-cards-content {
+	min-width: 30em;
+}
+
+/*=Infinite scroll loader 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+div#infscr-loading {
+	width: 100%;
+	text-align: center;
+}
+/*=Pagination 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.page-numbers {
+	display: inline-block; /*show when infinitescroll is disabled*/
+	text-align: center;
+	border: 0;
+	padding: 1em 0;
+	margin: 0;
+	width: 100%;
+}
+
+ul.page-numbers li {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+/*=Helper 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.fc-tabs-spacer {
+	clear: both;
+	height: 10px;
+}
+/*= woocommerce ovverides
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.woocommerce .woocommerce-ordering,.woocommerce-page .woocommerce-ordering
+	{
+	margin: 0;
+	float: none;
+}
+
+.woocommerce .star-rating,.woocommerce-page .star-rating {
+	text-shadow: 0 0.1em #362B36;
+	padding: 0.2em 0;
+}
+/*=fc-bar
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+#fc-bar .ui-tabs-anchor {
+	font-size: 0.875em !important;
+}
+
+#fc-bar a.fc-cart-contents {
+	font-size: 0.875em;
+}
+
+#fc-bar a.fc-cart-contents img {
+	float: left;
+	display: inline-block;
+	white-space: nowrap;
+	margin-right: 5px;
+	border: 0;
+	outline: none;
+	outline-style: none;
+}
+
+#fc-bar {
+	padding: 0;
+	margin: 0;
+}
+
+#fc-bar * div {
+	display: inline;
+	white-space: nowrap;
+}
+
+#fc-bar .orderby,#fc-bar * input#s,#fc-bar * input#searchsubmit {
+	font-size: 0.875em;
+	min-width: 4.25em;
+}
+
+#fc-bar * input#s {
+	width: 70%;
+	padding:0.3em;
+}
+
+#fc-bar .orderby {
+	width: 70%;
+	padding:0.4em;
+}
+
+#fc-bar * form#searchform,#fc-bar .woocommerce-ordering {
+	text-align: center;
+}
+/*=fc-tabs
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*= Tabs to bottom
+-------------------------------------------------------------*/
+#fc-tabs .ui-tabs-anchor {
+	font-size: 0.875em !important;
+}
+
+#fc-tabs  .ui-state-disabled {
+	display: none;
+}
+
+#fc-tabs .ui-tabs-nav {
+	clear: left;
+	padding: 0 .2em .2em .2em;
+}
+
+#fc-tabs .ui-tabs-nav li {
+	top: auto;
+	bottom: 0px;
+	margin: 0px 0.2em 1px 0px;
+	border-top: 0px none;
+}
+
+#fc-tabs .ui-tabs-nav,#fc-tabs>* li.ui-tabs-active {
+	margin-top: -1px;
+	padding-top: 1px;
+}
+/*= Tabs scroll
+-------------------------------------------------------------*/
+#fc-tabs .ui-tabs-panel {
+	height: 250px;
+	overflow: auto;
+}
+/*= Menu accordion
+-------------------------------------------------------------*/
+#fc-tabs-cat-accordion ul.fc-accordion {
+	list-style-type: none;
+	list-style: none;
+	margin: 0;
+	padding: 1px;
+}
+
+#fc-tabs-cat-accordion li.fc-menu-head {
+	display: block;
+	float: left;
+	width: 29.7%;
+	white-space: nowrap;
+	padding: 10px;
+	font-size: 0.9em;
+}
+
+#fc-tabs-cat-accordion li.fc-menu-head ul.fc-menu-children {
+	margin-bottom: 10px;
+}
+
+#fc-tabs-cat-accordion .fc-menu a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+#fc-tabs-cat-accordion  .fc-menu-head a {
+	font-weight: bold;
+	font-size: 0.875em;
+	text-transform: uppercase;
+}
+
+#fc-tabs-cat-accordion  .fc-menu-child a {
+	font-weight: normal;
+	font-size: 0.750em;
+	text-transform: capitalize;
+}
+
+#fc-tabs-cat-accordion  .fc-menu a span {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+#fc-tabs-cat-accordion  .fc-menu a span.ui-icon {
+	cursor: default;
+}
+/*= Sub categories
+-------------------------------------------------------------*/
+#fc-tabs-cat-subcat {
+	padding: 0.3em 0.5em;
+	margin: 0.2em;
+	max-height: 220px;
+	overflow: auto;
+}
+
+div.fc-tabs-cat-subcat-cat {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	-moz-box-shadow: 0px 0px 5px rgb(170, 170, 170);
+	-webkitbox-shadow: 0px 0px 5px rgb(170, 170, 170);
+	box-shadow: 0px 0px 5px rgb(170, 170, 170);
+	margin: 10px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	width: 170px;
+	height: 200px;
+}
+
+div.fc-tabs-cat-subcat-cat img {
+	padding-top: 10px;
+	height: 150px;
+	width: auto;
+	-moz-box-shadow: 0;
+	-webkitbox-shadow: 0;
+	box-shadow: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+div.fc-tabs-cat-subcat-cat a {
+	text-decoration: none;
+}
+
+div.fc-tabs-cat-subcat-cat h3 {
+	font-size: 0.750em;
+	font-weight: bold;
+	margin: 0 2px;
+	line-height: 1.5em;
+}
+
+div.fc-tabs-cat-subcat-cat h3 mark.count {
+	background: transparent;
+	color: inherit;
+}
+/*=Page Filters
+-------------------------------------------------------------*/
+#fc-tabs-catfilters a,#fc-tabs-tagfilters a,#fc-tabs-catfilters a:active,#fc-tabs-tagfilters a:hover
+#fc-tabs-catfilters a:focus,#fc-tabs-tagfilters a:focus {
+	display: block;
+	float: left;
+	text-decoration: none;
+	margin: 3px 3px 8px 0px;
+	padding: 3px 8px 1px;
+	font-size: 0.875em;
+	font-weight: normal;
+	width: 29%;
+	outline: medium none;
+	font-size: 0.750em;
+}
+/*= woocommerce widget in tabs
+-------------------------------------------------------------*/
+#fc-tabs .product_list_widget {
+	list-style-type: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#fc-tabs .product_list_widget li {
+	display: inline-block;
+	wite-space: nowrap;
+	float: none;
+	vertical-align: top;
+	padding: 5px;
+	margin: 5px;
+	width: 46%;
+	min-width: 16em;
+}
+
+#fc-tabs .product_list_widget li a,#fc-tabs .product_list_widget li span
+	{
+	font-size: 0.775em;
+	line-height: 1.4em;
+	padding: 10px;
+}
+
+#fc-tabs .product_list_widget li a {
+	display: block;
+	text-decoration: none;
+}
+
+#fc-tabs .product_list_widget li a img {
+	display: block;
+	clear: both;
+	float: right;
+	margin: 0 5px;
+	height: 90px;
+	width: auto;
+}
+/*=fc-cards
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+div.fc-cards-content-card {
+	display: block;
+	padding: 12px 10px 12px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+div.fc-cards-content-card a {
+	text-decoration: none;
+}
+
+div.fc-cards-content-card .fc-img-anchor {
+	display: block;
+	position: relative;
+	width: 100% !important;
+	height: 134px !important;
+	overflow: hidden;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+div.fc-cards-content-card a img {
+	display: block;
+	margin: 2px auto 2px !important;
+	height: 130px;
+	width: auto;
+	box-shadow: none !important;
+}
+
+div.fc-cards-content-card .caption {
+	display: block;
+	position: absolute;
+	background-color: #000;
+	cursor: pointer;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+	filter: alpha(opacity =     75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+}
+
+div.fc-cards-content-card div.caption p {
+	text-indent: 0;
+	margin: 5px;
+	font-size: 80%;
+}
+
+div.fc-cards-content-card .fc-card-button {
+	display: block;
+	float: left;
+	position: absolute;
+	top: auto;
+	bottom: 29px;
+	margin: 6px auto;
+	left: 10px;
+	text-align: center;
+	padding: 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+div.fc-cards-content-card a.added_to_cart {
+	position: absolute;
+	clear: both;
+	right: 10px;
+	overflow: hidden;
+	bottom: 29px;
+	margin: 6px auto;
+	padding: 0;
+	background: transparent;
+}
+
+div.fc-cards-content-card .ui-button,div.fc-cards-content-card .ui-button-text
+	{
+	line-height: 16px;
+	font-size: 12px;
+}
+
+div.fc-cards-content-card  h3.fc-card-title {
+	display: block;
+	font-size: 0.750em;
+	float: left;
+	margin: 0;
+	padding-top: 4px;
+	line-height: 1.3em;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+div.fc-cards-content-card span.fc-onsale {
+	display: inline-block;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	padding: 4px;
+	width: 3.4em;
+	height: 3.4em;
+	line-height: 3.4em;
+	font-size: 0.850em;
+	cursor: pointer;
+	text-align: center;
+	font-size:0.725em;
+	border: 0.2em solid rgb(255, 255, 255);
+	border-radius: 2.9em 2.9em 2.9em 2.9em;
+	box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.8);
+	text-shadow: none;
+}
+
+div.fc-cards-content-card span.price {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: 10px;
+	bottom: 5px;
+}
+
+div.fc-cards-content-card span.price ins span.amount,div.fc-cards-content-card span.price span.amount
+	{
+	font-size: 0.875em;
+}
+
+div.fc-cards-content-card span.price ins {
+	background: none;
+}
+
+div.fc-cards-content-card div.star-rating {
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+/*=fc-single-product
+------------------------------------------------------------*/
+div.fc-single-box-title h2{
+	clear:both;
+	margin:1em 0;
+}

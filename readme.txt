@@ -4,7 +4,7 @@ Donate link: http://mtflycards.dynup.org
 Tags: Mt Flycards Standard Edition, Woocommerce Addon, jQuery-UI
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -35,7 +35,7 @@ Recommend the use of Poedit for translation
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
 * Woocommerce 2.0.10 or greater
-* At least one of the following themes for Wordpress Twenty Ten, Twenty Eleven, Twenty Twelve
+* At least one of the following themes for Wordpress Twenty Ten, Twenty Eleven, Twenty Twelve, Twenty Thirteen
 
 = Automatic installation =
 
@@ -68,5 +68,8 @@ It always recommended to look at the change log to see what and which files have
 for more information how to use MT Flycards please visit http://mtflycards.dynup.org
 
 == Changelog ==
+=1.2 - 
+* Every compatible theme has now the own style sheet and defaults settings
+* Tested on Wordpress 3.6
 =1.1 - 26/07/2013 =
 * First Release MT Flycards Standard Edition

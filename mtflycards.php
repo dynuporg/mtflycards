@@ -4,7 +4,7 @@ Plugin Name: MT Flycards Standard Edition
 Plugin URI: http://mtflycards.dynup.org
 Description: this plugin teming shop page of woocommerce 2.0.10 and later
 Author: Marco Tomaselli at sys@dynup.org
-Version: 1.1
+Version: 1.2
 Author URI: http://mtflycards.dynup.org/
 */
 
@@ -29,6 +29,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			var $mtflycards_products_per_page_range=array();
 			var $mtflycards_skin=array();
 			var $is_theme_compat=false;
+			var $theme_defaults=array();
 
 
 			public function  __construct(){
@@ -60,31 +61,35 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			}
 			
 			function core(){
-
-				//check if existsts wrapper files for current wordpress theme
-				$this->check_theme_compat(); 
+				
+				//current Wordpress theme wrapper and  defaults integration
+				$theme_defaults_file=$this->plugin_path.'/compat/'.get_option('template').'/theme_defaults.php';
+				if($this->check_theme_compat() && is_file($theme_defaults_file)) 	
+				$this->theme_defaults=include_once $theme_defaults_file;
+				if (!is_array($this->theme_defaults))
+					$this->theme_defaults=array();
+				
 				//defaults options
-				apply_filters('mtflycards_defaults', $this->defaults=array(
-
-				'skin'=>'cupertino',
-				'animation' => 'swing',
-				'animation_time' => 450,
-				'infinitescroll' =>1,
-				'ajax_page_load' =>1,
-				'show_catsf_tab'=>1,
-				'show_tagsf_tab'=>1,
-				'pe_image_overlay'=>1,
-				'product_excerpt_len'=>100,
-				'products_per_page'=>6,
-				'bgc_product_img'=>'#ffffff',
-				'bgc_excerpt'=>'#f2f5f7',
-				'fg_excerpt'=>'#362b3a',
-				'card_width'=>'180px',
-				'card_height'=>'237px',
-				'star_color'=>'#fff1a0'
-
-
-						));
+				apply_filters('mtflycards_defaults', $this->defaults=array_merge(array(
+						'theme_defaults'=>'twentytwelve',
+						'skin'=>'cupertino',
+						'animation' => 'swing',
+						'animation_time' => 450,
+						'infinitescroll' =>1,
+						'ajax_page_load' =>1,
+						'show_catsf_tab'=>1,
+						'show_tagsf_tab'=>1,
+						'pe_image_overlay'=>1,
+						'product_excerpt_len'=>100,
+						'products_per_page'=>6,
+						'bgc_product_img'=>'#ffffff',
+						'bgc_excerpt'=>'#f2f5f7',
+						'fg_excerpt'=>'#362b3a',
+						'card_width'=>'180px',
+						'card_height'=>'237px',
+						'star_color'=>'#fff1a0'
+				
+				),$this->theme_defaults));
 
 				//valid range
 				apply_filters('mtflycards_animation_time_range',$this->mtflycards_animation_time_range=array(200,800));
@@ -103,13 +108,14 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				apply_filters('mtflycards_message', $this->message=array(
 				'min_max_range'=>__('min: %d max: %d','flycards'),
 				'card_dimension_type'=>__('valid value are in px, em, percent','flycards'),
-				'restore_defaults'=>__('All settings restored to its defaults','flycards'),
+				'restore_defaults'=>__('All Theme settings restored to its defaults','flycards'),
 				'mtflycards_settings_sa'=>__('<p style="width:400px">Select jQuery-UI theme and animation type</p>','flycards'),
 				'mtflycards_settings_theme'=>__('<p>Select compatibility for your current active wordpress theme.</p>','flycards'),
 				'mtflycards_settings_ajax'=>__('<p>Activate or disable ajax and infinetscroll </p>','flycards'),
 				'mtflycards_settings_parts_prop'=>__('<p>Product summary length, width and higth of cards, show products per page</p>','flycards'),
 				'mtflycards_settings_parts'=>__('<p>Product excerpt over images, category tab filters, tags tab filters </p>','flycards'),
-				'mtflycards_settings_colors'=>__('<p>Can choose color for non ui widget parts</p>','flycards')
+				'mtflycards_settings_colors'=>__('<p>Can choose color for non ui widget parts</p>','flycards'),
+				'load_theme_defaults' => sprintf(__('%s theme has its own settings, it is recommended to restore the default settings using the button restore defaults','flycards'),get_option('template'))
 				));
 
 				//error
@@ -251,7 +257,7 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				wp_enqueue_style($this->options['skin'],$this->plugin_url() . '/assets/jquery-ui/themes/'.$this->options['skin'].'/jquery-ui.css');
 
 				// load mtflycards styles
-				wp_enqueue_style('mtflycards-core',$this->plugin_url() . '/assets/css/mtflycards-core.css');
+				wp_enqueue_style('mtf-style',$this->plugin_url() . '/compat/'.get_option('template').'/mtf-style.css');
 
 			}
 
@@ -263,12 +269,17 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			}
 
 			function register_settings() {
+				
+				$options=$this->get_options();
+				
 
 				register_setting('mtflycards_options', 'mtflycards_options', array(&$this, 'validate_options'));
 				
 				if(!$this->is_theme_compat)
-					add_settings_error('mtflycards_options', 'setting-error-settings_updated', $this->error['not_theme_compatible'],'error');
-
+					add_settings_error('mtflycards_options', 'not_theme_compatible', $this->error['not_theme_compatible'],'error');
+				else if($options['theme_defaults']!=get_option('template') && $this->is_theme_compat)
+					add_settings_error('mtflycards_option', 'load_theme_defaults',$this->message['load_theme_defaults'],'updated');
+				
 				//skin & animation settings
 				add_settings_section(
 				'mtflycards_settings_sa',
@@ -288,6 +299,16 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				array(
 				'id'=>'skin',
 				'ar'=>$this->mtflycards_skin)
+				);
+				
+				add_settings_field(
+				'theme_defaults',
+				'',
+				array(&$this, 'input_hidden'),
+				'edit_mtflycards_settings',
+				'mtflycards_settings_sa',
+				array(
+				'id'=>'theme_defaults')
 				);
 
 				add_settings_field(
@@ -509,6 +530,14 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				);
 
 			}
+			
+			function input_hidden($args){
+				extract($args);
+				if( !isset($id)) return;
+				$options = $this->get_options();
+				$input= "<input id='{$id}' name='mtflycards_options[{$id}]' type='hidden' value='{$options[$id]}' />";
+				echo $input.=$text;
+			}
 
 			function input_text_field($args, $size='', $text=''){
 
@@ -604,12 +633,16 @@ If (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//restore to defaults confirmed
 				if($_POST['restore_defaults']) {
+					global $wp_settings_errors;
+					$wp_settings_errors=array();
 					add_settings_error('mtflycards_options', 'setting-error-settings_updated', $this->message['restore_defaults'],'updated');
 					return $this->defaults;
 				}
 
 				//set for restore value if error occurs
 				$old_options=$this->get_options();
+				
+				
 
 				if(!$this->is_digits_range($options['animation_time'],$this->mtflycards_animation_time_range)){
 					add_settings_error('mtflycards_options', 'animation_time', $this->error['animation_time'],'error');

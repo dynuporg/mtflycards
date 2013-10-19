@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
 var error;
 var array_error=new Array(<?php echo json_encode($error);?>);
 $('#restore_defaults').click(function(){
-return confirm('<?php _e('Are you sure restore defaults settings of MT Flycards ?', 'flycards')?>')?true:false;
+return confirm('<?php _e('Are you sure restore defaults?', 'flycards')?>')?true:false;
 });
 $.each(array_error,function(key,value){
 $.each(value,function(key,value){
